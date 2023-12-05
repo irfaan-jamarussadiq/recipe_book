@@ -2,7 +2,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Recipe({ recipe }) {
+function Recipe({ recipe, deleteRecipeFromView, setError }) {
   const [showMoreOptions, setShowMoreOptions] = useState(false);
   const navigate = useNavigate();
 
@@ -14,7 +14,7 @@ function Recipe({ recipe }) {
   async function deleteRecipe(recipe) {
     // Send DELETE request to server with recipe as payload.
     try {
-      const response = await fetch("http://locahost:3000/api/recipes", {
+      const response = await fetch("http://localhost:3000/api/recipes", {
         method: "DELETE",
         mode: "cors",
         credentials: "omit",
@@ -26,9 +26,10 @@ function Recipe({ recipe }) {
 
       if (response.status === 404) {
         // If recipe to delete does not exist somehow
-        // TODO: Should error be in Recipe or App component?
+        setError("Recipe does not exist");
       } else if (response.status === 200) {
-        // If recipe was deleted successfully
+        // If recipe was deleted successfully, remove from view
+        deleteRecipeFromView(recipe);
       }
     } catch (error) {
       console.log(error);

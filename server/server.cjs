@@ -18,7 +18,7 @@ var connection = mysql.createConnection({
 app.use(
   cors({
     origin: "http://localhost:5173",
-    methods: ["GET", "POST"],
+    methods: ["GET", "POST", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   }),
 );
@@ -52,6 +52,20 @@ app.post("/api/recipes", bodyParser.json(), async (request, response) => {
         [name, description, imageName],
       );
     response.status(201).send("New recipe created");
+  }
+});
+
+app.delete("/api/recipes", bodyParser.json(), async (request, response) => {
+  const { name, description, imageName } = request.body;
+  const [results] = await connection
+    .promise()
+    .query("SELECT 1 FROM Recipe WHERE name = ?", name);
+  if (results && results.length > 0) {
+    // If recipe name exists, delete the recipe.
+    await connection.promise().query("DELETE FROM Recipe WHERE name = ?", name);
+    response.status(200).send("Recipe was succesfully deleted.");
+  } else {
+    response.status(404).send("Could not find recipe to delete.");
   }
 });
 
