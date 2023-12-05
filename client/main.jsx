@@ -10,7 +10,7 @@ import "./index.css";
 
 const navLinks = [
   { href: "create-recipe", text: "Create a Recipe" },
-  { href: "/", text: "View Recipes" }
+  { href: "/", text: "View Recipes" },
 ];
 
 ReactDOM.createRoot(document.getElementById("root")).render(

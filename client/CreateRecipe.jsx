@@ -9,7 +9,10 @@ function CreateRecipe() {
 
   async function createRecipe(event) {
     // Get recipes from POST url and place in database.
-    const recipeImage = uploadedImage.name.substring(0, uploadedImage.name.indexOf("."));
+    const recipeImage = uploadedImage.name.substring(
+      0,
+      uploadedImage.name.indexOf("."),
+    );
     const recipeData = { ...recipe, imageName: recipeImage };
     event.preventDefault();
 
@@ -25,7 +28,9 @@ function CreateRecipe() {
       });
 
       if (response.status === 409) {
-        setFeedback("A recipe with that name already exists, please try again!");
+        setFeedback(
+          "A recipe with that name already exists, please try again!",
+        );
       } else if (response.status === 201) {
         setFeedback("Recipe was created!");
       }
@@ -66,7 +71,7 @@ function CreateRecipe() {
             type="file"
             id="image-upload"
             name="image"
-            onChange={e => setUploadedImage(e.target.files[0])}
+            onChange={(e) => setUploadedImage(e.target.files[0])}
             required={true}
           />
         </div>

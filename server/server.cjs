@@ -1,8 +1,8 @@
 const express = require("express");
 const mysql = require("mysql2");
 const dotenv = require("dotenv");
-const cors = require('cors');
-const bodyParser = require('body-parser');
+const cors = require("cors");
+const bodyParser = require("body-parser");
 const app = express();
 const port = 3000;
 
@@ -15,32 +15,43 @@ var connection = mysql.createConnection({
   database: "recipeBook",
 });
 
-app.use(cors({
-  origin: 'http://localhost:5173',
-  methods: ['GET', 'POST'], 
-  allowedHeaders: ['Content-Type', 'Authorization'],
-}))
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  }),
+);
 
 app.use(bodyParser.json());
 
 app.get("/api/recipes", (request, response) => {
-  connection.promise().query("SELECT * FROM Recipe")
+  connection
+    .promise()
+    .query("SELECT * FROM Recipe")
     .then(([rows, fields]) => {
       return response.json(rows);
     })
-    .catch(error => console.log(error));
+    .catch((error) => console.log(error));
 });
 
-app.post('/api/recipes', bodyParser.json(), async (request, response) => {
+app.post("/api/recipes", bodyParser.json(), async (request, response) => {
   const { name, description, imageName } = request.body;
-  const [results] = await connection.promise().query("SELECT 1 FROM Recipe WHERE name = ?", name);
+  const [results] = await connection
+    .promise()
+    .query("SELECT 1 FROM Recipe WHERE name = ?", name);
   if (results && results.length > 0) {
     // If recipe name exists, don't create a new recipe.
-    response.status(409).send("Recipe with same name already exists");        
+    response.status(409).send("Recipe with same name already exists");
   } else {
     // Update recipe if name doesn't exist already
-    await connection.promise().query("INSERT INTO Recipe SET name = ?, description = ?, imageName = ?", [name, description, imageName]);
-    response.status(201).send("New recipe created");        
+    await connection
+      .promise()
+      .query(
+        "INSERT INTO Recipe SET name = ?, description = ?, imageName = ?",
+        [name, description, imageName],
+      );
+    response.status(201).send("New recipe created");
   }
 });
 

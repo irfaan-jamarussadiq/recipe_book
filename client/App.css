@@ -78,7 +78,8 @@
   max-width: 400px;
 }
 
-.recipe-name, .more-options {
+.recipe-name,
+.more-options {
   display: inline;
 }
 

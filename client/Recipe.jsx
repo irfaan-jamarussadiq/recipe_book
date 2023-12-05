@@ -21,7 +21,7 @@ function Recipe({ recipe }) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(recipe),      
+        body: JSON.stringify(recipe),
       });
 
       if (response.status === 404) {
@@ -30,7 +30,7 @@ function Recipe({ recipe }) {
       } else if (response.status === 200) {
         // If recipe was deleted successfully
       }
-    } catch(error) {
+    } catch (error) {
       console.log(error);
     }
   }
@@ -39,25 +39,36 @@ function Recipe({ recipe }) {
     <div className="Recipe card" tabIndex="0">
       <div className="heading-container">
         <h2 className="recipe-name">{recipe.name}</h2>
-        <button onClick={() => setShowMoreOptions(!showMoreOptions)} className="more-options">
+        <button
+          onClick={() => setShowMoreOptions(!showMoreOptions)}
+          className="more-options"
+        >
           <img src="more.svg" alt="More Options" />
         </button>
-        <div className={`recipe-options ${showMoreOptions ? "options-shown" : "options-hidden"}`}>
+        <div
+          className={`recipe-options ${
+            showMoreOptions ? "options-shown" : "options-hidden"
+          }`}
+        >
           <ul className="recipe-options-list">
             <li className="recipe-option">
-              <a className="edit" onClick={() => goToRecipeInstructions(recipe)}>Edit</a>
+              <a
+                className="edit"
+                onClick={() => goToRecipeInstructions(recipe)}
+              >
+                Edit
+              </a>
             </li>
             <li className="recipe-option">
-              <a className="delete" onClick={() => deleteRecipe(recipe)}>Delete</a>
+              <a className="delete" onClick={() => deleteRecipe(recipe)}>
+                Delete
+              </a>
             </li>
           </ul>
         </div>
       </div>
       <div className="image-container">
-        <img
-          src={`images/${recipe.imageName}.jpg`}
-          alt={recipe.imageAlt}
-        />
+        <img src={`images/${recipe.imageName}.jpg`} alt={recipe.imageAlt} />
       </div>
       <p className="recipe-description">{recipe.description}</p>
     </div>

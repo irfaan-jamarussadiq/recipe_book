@@ -7,10 +7,7 @@ function RecipeInstructions() {
     <div className="RecipeInstructions card">
       <h2>{recipe.name}</h2>
       <div className="image-container">
-        <img
-          src={`images/${recipe.imageName}.jpg`}
-          alt={recipe.imageAlt}
-        />
+        <img src={`images/${recipe.imageName}.jpg`} alt={recipe.imageAlt} />
       </div>
       <ol className="instructions-list">
         {recipe.instructions &&
