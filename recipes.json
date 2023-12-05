@@ -1,0 +1,40 @@
+[
+  {
+    "name": "Baked Potatoes",
+    "imageName": "baked-potatoes",
+    "imageAlt": "Baked potatoes laid over a sheet pan",
+    "description": "Baby potatoes baked with olive oil, chili powder, salt, and black pepper"
+  },
+  {
+    "name": "Baked Chicken",
+    "imageName": "baked-chicken",
+    "imageAlt": "Red baked chicken made with several Indian spices",
+    "description": "Chicken baked with red chili powder, garam masala, turmeric, coriander powder, salt, and a hint of lemon juice",
+    "instructions": [
+      "Wash the chicken and drain the water.",
+      "Add chili powder, garam masala, turmeric, coriander powder, salt, and lemon juice to a bowl.",
+      "Apply the chili paste to the chicken in a new bowl and make sure all pieces are covered well.",
+      "Take out a baking pan and apply oil to the surface.",
+      "Take the chicken pieces and place them on the baking pan.",
+      "Place the pan in the oven at 325 degrees Fahrenheit and heat for 1 - 2 hours. Take out from the oven every 15 minutes to see progress until chili paste has fully covered the chicken pieces."
+    ]
+  },
+  {
+    "name": "Chicken Pita Wraps",
+    "imageName": "chicken-pita-wrap",
+    "imageAlt": "Burrito with chicken, vegetables, and mayonnaise",
+    "description": "Pita wrap made with chicken, onions, bell peppers, tomatoes, lettuce, and mayonnaise",
+    "instructions": [
+      "Prepare some mayonnaise, either store-bought or a custom recipe.",
+      "Cut the chicken into small pieces that can be placed inside the wrap.",
+      "Add chili paste to the chicken and mix thoroughly",
+      "Heat the chicken and chili paste in a pot for 10 - 15 minutes. Keep the lid closed.",
+      "When the water is drained, feel free to lift the lid.",
+      "Dice lettuce, tomatoes, and onions.",
+      "Heat some cheese with chili flakes to your liking.",
+      "Assemble all ingredients.",
+      "Lay the pita wrap flat and cover it in a thin layer of mayonnaise. Place the chicken, lettuce, tomatoes, onions, and cheese in the wrap as well.",
+      "Heat in the microwave for 1-2 minutes."
+    ]
+  }
+]
