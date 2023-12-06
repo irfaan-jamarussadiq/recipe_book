@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import App from "./App.jsx";
 import NavBar from "./NavBar.jsx";
-import RecipeInstructions from "./RecipeInstructions.jsx";
+import EditRecipe from "./EditRecipe.jsx";
 import CreateRecipe from "./CreateRecipe.jsx";
 import Footer from "./Footer.jsx";
 import "./index.css";
@@ -19,7 +19,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <Router>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/:recipeName" element={<RecipeInstructions />} />
+        <Route path="/:recipeName" element={<EditRecipe />} />
         <Route path="/create-recipe" element={<CreateRecipe />} />
       </Routes>
     </Router>
