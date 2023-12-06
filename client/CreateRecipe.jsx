@@ -91,7 +91,7 @@ function CreateRecipe() {
           />
         </div>
         <div className="form-group">
-          <button className="submit-btn">Create Recipe</button>
+          <button className="submit btn">Create Recipe</button>
         </div>
       </form>
     </div>

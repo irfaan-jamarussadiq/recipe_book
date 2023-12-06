@@ -26,11 +26,17 @@ p {
   transition: box-shadow 0.6s ease;
 }
 
-.card:hover {
-  box-shadow: 0 0 12px rgb(0 0 0 / 0.3);
-  cursor: pointer;
-}
-
 .image-container > img {
   width: 100%;
+}
+
+.btn {
+  border: none;
+  box-shadow: 0 0 8px rgb(0 0 0 / 0.1);
+  padding: 8px 6px;
+  margin: 4px;
+}
+
+.btn:hover {
+  cursor: pointer;
 }

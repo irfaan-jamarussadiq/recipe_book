@@ -19,7 +19,7 @@ function EditRecipe() {
           <label>Description</label>
           <input type="text" defaultValue={recipe.description} />
         </div>
-        <button className="submit-btn">Update Recipe</button>
+        <button className="submit btn">Update Recipe</button>
       </form>
     </div>
   );
