@@ -6,9 +6,8 @@ function Recipe({ recipe, deleteRecipeFromView, setError }) {
   const [showMoreOptions, setShowMoreOptions] = useState(false);
   const navigate = useNavigate();
 
-  function goToRecipeInstructions(recipe) {
-    const hyphenatedName = recipe.name.toLowerCase().replace(" ", "-");
-    navigate(`/${hyphenatedName}`, { state: recipe });
+  function hyphenate(recipeName) {
+    return recipe.name.toLowerCase().replace(" ", "-");
   }
 
   async function deleteRecipe(recipe) {
@@ -53,10 +52,7 @@ function Recipe({ recipe, deleteRecipeFromView, setError }) {
         >
           <ul className="recipe-options-list">
             <li className="recipe-option">
-              <a
-                className="edit"
-                onClick={() => goToRecipeInstructions(recipe)}
-              >
+              <a className="edit" href={`/edit/${hyphenate(recipe.name)}`}>
                 Edit
               </a>
             </li>
@@ -72,6 +68,20 @@ function Recipe({ recipe, deleteRecipeFromView, setError }) {
         <img src={`images/${recipe.imageName}.jpg`} alt={recipe.imageAlt} />
       </div>
       <p className="recipe-description">{recipe.description}</p>
+      <div className="recipe-actions">
+        <a
+          className="recipe-action"
+          href={`/ingredients/${hyphenate(recipe.name)}`}
+        >
+          Ingredients
+        </a>
+        <a
+          className="recipe-action"
+          href={`/instructions/${hyphenate(recipe.name)}`}
+        >
+          Instructions
+        </a>
+      </div>
     </div>
   );
 }
