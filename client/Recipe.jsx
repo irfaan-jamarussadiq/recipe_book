@@ -59,6 +59,27 @@ function Recipe({ recipe, deleteRecipeFromView, setError }) {
     );
   }
 
+  function getRecipeActions(recipe) {
+    return (
+      <>
+        <div className="recipe-actions">
+          <a
+            className="recipe-action"
+            href={`/ingredients/${hyphenate(recipe.name)}`}
+          >
+            Ingredients
+          </a>
+          <a
+            className="recipe-action"
+            href={`/instructions/${hyphenate(recipe.name)}`}
+          >
+            Instructions
+          </a>
+        </div>
+      </>
+    );
+  }
+
   return (
     <div className="Recipe card" tabIndex="0">
       <div className="heading-container">
@@ -75,20 +96,7 @@ function Recipe({ recipe, deleteRecipeFromView, setError }) {
         <img src={`images/${recipe.imageName}.jpg`} alt={recipe.imageAlt} />
       </div>
       <p className="recipe-description">{recipe.description}</p>
-      <div className="recipe-actions">
-        <a
-          className="recipe-action"
-          href={`/ingredients/${hyphenate(recipe.name)}`}
-        >
-          Ingredients
-        </a>
-        <a
-          className="recipe-action"
-          href={`/instructions/${hyphenate(recipe.name)}`}
-        >
-          Instructions
-        </a>
-      </div>
+      {getRecipeActions(recipe)}
     </div>
   );
 }
