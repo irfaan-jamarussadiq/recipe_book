@@ -1,3 +1,4 @@
+import './EditRecipe.css';
 import { useLocation } from "react-router-dom";
 
 function EditRecipe() {
@@ -13,11 +14,11 @@ function EditRecipe() {
         </div>
         <div className="form-group">
           <label>Upload Image</label>
-          <input className="image-upload" type="file" />
+          <input className="image-upload btn" type="file" />
         </div>
         <div className="form-group">
           <label>Description</label>
-          <input type="text" defaultValue={recipe.description} />
+          <input className="recipe-description" type="text" defaultValue={recipe.description} />
         </div>
         <button className="submit btn">Update Recipe</button>
       </form>
