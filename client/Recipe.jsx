@@ -95,7 +95,7 @@ function Recipe({ recipe, deleteRecipeFromView, setError }) {
       <div className="image-container">
         <img src={`images/${recipe.imageName}.jpg`} alt={recipe.imageAlt} />
       </div>
-      <p className="recipe-description">{recipe.description}</p>
+      <p>{recipe.description}</p>
       {getRecipeActions(recipe)}
     </div>
   );
