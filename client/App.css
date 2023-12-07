@@ -130,6 +130,10 @@
   color: rgb(3 105 161);
 }
 
+.edit:hover {
+  cursor: pointer;
+}
+
 .delete {
   color: #dc2626;
 }

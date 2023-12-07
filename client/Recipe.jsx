@@ -52,7 +52,10 @@ function Recipe({ recipe, deleteRecipeFromView, setError }) {
         >
           <ul className="recipe-options-list">
             <li className="recipe-option">
-              <a className="edit" href={`/edit/${hyphenate(recipe.name)}`}>
+              <a 
+                className="edit" 
+                onClick={() => navigate(`/edit/${hyphenate(recipe.name)}`, { state: recipe })}
+              >
                 Edit
               </a>
             </li>
