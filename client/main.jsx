@@ -19,7 +19,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <Router>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/:recipeName" element={<EditRecipe />} />
+        <Route path="/edit/:recipeName" element={<EditRecipe />} />
         <Route path="/create-recipe" element={<CreateRecipe />} />
       </Routes>
     </Router>

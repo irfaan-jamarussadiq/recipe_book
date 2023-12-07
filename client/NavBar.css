@@ -1,0 +1,41 @@
+.NavBar {
+  position: sticky;
+  background-color: var(--sky-blue);
+  color: var(--white);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
+  padding: 16px;
+  text-align: center;
+}
+
+.NavBar > h1 {
+  font-size: 2em;
+}
+
+.NavBar > .recipe-links {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 500px) {
+  .NavBar > .recipe-links {
+    flex-direction: column;
+  }
+}
+
+.recipe-link {
+  font-size: 1.25em;
+  list-style-type: none;
+  margin: 8px 16px;
+}
+
+.recipe-link > a {
+  color: var(--white);
+  transition: color 0.8s ease;
+}
+
+.recipe-link > a:hover {
+  color: rgb(230 230 230);
+  cursor: pointer;
+}

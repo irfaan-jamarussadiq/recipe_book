@@ -1,4 +1,4 @@
-import "./App.css";
+import "./Recipe.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -35,6 +35,30 @@ function Recipe({ recipe, deleteRecipeFromView, setError }) {
     }
   }
 
+  function getRecipeOptions(recipe) {
+    return (
+      <div className="recipe-options">
+        <ul className="recipe-options-list">
+          <li className="recipe-option">
+            <a
+              className="edit"
+              onClick={() =>
+                navigate(`/edit/${hyphenate(recipe.name)}`, { state: recipe })
+              }
+            >
+              Edit
+            </a>
+          </li>
+          <li className="recipe-option">
+            <a className="delete" onClick={() => deleteRecipe(recipe)}>
+              Delete
+            </a>
+          </li>
+        </ul>
+      </div>
+    );
+  }
+
   return (
     <div className="Recipe card" tabIndex="0">
       <div className="heading-container">
@@ -45,27 +69,7 @@ function Recipe({ recipe, deleteRecipeFromView, setError }) {
         >
           <img src="more.svg" alt="More Options" />
         </button>
-        <div
-          className={`recipe-options ${
-            showMoreOptions ? "options-shown" : "options-hidden"
-          }`}
-        >
-          <ul className="recipe-options-list">
-            <li className="recipe-option">
-              <a 
-                className="edit" 
-                onClick={() => navigate(`/edit/${hyphenate(recipe.name)}`, { state: recipe })}
-              >
-                Edit
-              </a>
-            </li>
-            <li className="recipe-option">
-              <a className="delete" onClick={() => deleteRecipe(recipe)}>
-                Delete
-              </a>
-            </li>
-          </ul>
-        </div>
+        {showMoreOptions && getRecipeOptions(recipe)}
       </div>
       <div className="image-container">
         <img src={`images/${recipe.imageName}.jpg`} alt={recipe.imageAlt} />

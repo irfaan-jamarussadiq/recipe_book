@@ -1,0 +1,73 @@
+.CreateRecipe {
+  display: flex;
+  justify-content: center;
+}
+
+.recipe-form {
+  max-width: 800px;
+  width: max(800px, 100%);
+}
+
+.form-title {
+  padding-top: 1em;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.5em 0;
+}
+
+.form-group > label {
+  font-size: 1.125em;
+  margin: 8px 0px;
+}
+
+.form-group > input {
+  padding: 8px 4px;
+}
+
+#recipe-name {
+  width: 324px;
+}
+
+#image-upload {
+  padding: 0;
+}
+
+#image-upload::file-selector-button {
+  background-color: var(--bg-accent);
+  color: var(--white);
+  padding: 12px;
+  border: none;
+}
+
+#image-upload::file-selector-button:hover {
+  background-color: var(--green);
+  cursor: pointer;
+}
+
+#recipe-description {
+  resize: vertical;
+  width: 400px;
+  padding: 8px;
+}
+
+.submit {
+  background-color: var(--bg-accent);
+  color: var(--white);
+}
+
+.submit:hover {
+  background-color: var(--green);
+}
+
+.error-message {
+  padding: 8px;
+  min-width: 400px;
+  max-width: 100%;
+  color: var(--white);
+  background-color: var(--red);
+  font-weight: bold;
+}

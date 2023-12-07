@@ -1,0 +1,60 @@
+.Recipe {
+  text-align: center;
+  max-width: 400px;
+}
+
+.recipe-name,
+.more-options {
+  display: inline;
+}
+
+.more-options {
+  border: none;
+  border-radius: 1em;
+  float: right;
+}
+
+.more-options:hover {
+  cursor: pointer;
+}
+
+.recipe-actions {
+  margin: 8px;
+  padding: 8px;
+}
+
+.recipe-action {
+  background-color: rgb(14 165 233);
+  color: var(--white);
+  margin: 4px 8px;
+  padding: 8px;
+  text-decoration: none;
+  box-shadow: 0 0 8px rgb(0 0 0 / 0.1);
+}
+
+.recipe-action:hover {
+  box-shadow: 0 0 12px rgb(0 0 0 / 0.1);
+}
+
+.recipe-option {
+  list-style-type: none;
+  background-color: rgb(226 232 240);
+  padding: 4px;
+  margin-bottom: 4px;
+}
+
+.recipe-option > a {
+  text-decoration: underline;
+}
+
+.edit {
+  color: rgb(3 105 161);
+}
+
+.edit:hover {
+  cursor: pointer;
+}
+
+.delete {
+  color: #dc2626;
+}

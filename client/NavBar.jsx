@@ -1,3 +1,5 @@
+import "./NavBar.css";
+
 function NavBar({ links, linkTexts }) {
   return (
     <nav className="NavBar">

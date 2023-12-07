@@ -1,0 +1,9 @@
+.EditRecipe {
+  display: flex;
+  flex-direction: column;
+}
+
+.EditRecipe > .image-container {
+  max-width: 400px;
+  max-height: 100%;
+}
