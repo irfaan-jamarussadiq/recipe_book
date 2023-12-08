@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 function Recipe({ recipe, deleteRecipeFromView, setError }) {
   const [showMoreOptions, setShowMoreOptions] = useState(false);
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
   const navigate = useNavigate();
 
   function hyphenate(recipeName) {
@@ -58,28 +59,7 @@ function Recipe({ recipe, deleteRecipeFromView, setError }) {
       </div>
     );
   }
-
-  function getRecipeActions(recipe) {
-    return (
-      <>
-        <div className="recipe-actions">
-          <a
-            className="recipe-action"
-            href={`/ingredients/${hyphenate(recipe.name)}`}
-          >
-            Ingredients
-          </a>
-          <a
-            className="recipe-action"
-            href={`/instructions/${hyphenate(recipe.name)}`}
-          >
-            Instructions
-          </a>
-        </div>
-      </>
-    );
-  }
-
+  
   return (
     <div className="Recipe card" tabIndex="0">
       <div className="heading-container">
@@ -96,7 +76,20 @@ function Recipe({ recipe, deleteRecipeFromView, setError }) {
         <img src={`images/${recipe.imageName}.jpg`} alt={recipe.imageAlt} />
       </div>
       <p>{recipe.description}</p>
-      {getRecipeActions(recipe)}
+      <div className="recipe-actions">
+        <a
+          className="recipe-action"
+          href={`/ingredients/${hyphenate(recipe.name)}`}
+        >
+          Ingredients
+        </a>
+        <a
+          className="recipe-action"
+          href={`/instructions/${hyphenate(recipe.name)}`}
+        >
+          Instructions
+        </a>
+      </div>
     </div>
   );
 }
