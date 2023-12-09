@@ -56,12 +56,12 @@ function Recipe({ recipe, deleteRecipeFromView, setError }) {
         </button>
         {showMoreOptions && (
           <ul className="recipe-options-list">
-            <li className="recipe-option btn">
+            <li className="recipe-option">
               <a className="edit" onClick={() => editRecipe(recipe)}>
                 Edit
               </a>
             </li>
-            <li className="recipe-option btn">
+            <li className="recipe-option">
               <a className="delete" onClick={() => confirmDeletion(recipe)}>
                 Delete
               </a>
