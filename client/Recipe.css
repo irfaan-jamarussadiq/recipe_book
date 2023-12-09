@@ -29,6 +29,11 @@
   text-decoration: none;  
 }
 
+.recipe-options-list {
+  display: flex;
+  justify-content: center;
+}
+
 .recipe-option {
   background-color: rgb(226 232 240);
   list-style-type: none;  
@@ -47,7 +52,8 @@
 }
 
 .edit {
-  color: var(--sky-blue);
+  color: var(--white);
+  background-color: var(--green);
 }
 
 .edit:hover {
@@ -55,5 +61,9 @@
 }
 
 .delete {
-  color: #dc2626;
+  color: var(--red);
+}
+
+.image-container {
+  padding: 8px;
 }

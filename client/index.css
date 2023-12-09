@@ -40,7 +40,7 @@ p {
 .btn {
   border: none;
   box-shadow: var(--box-shadow);
-  padding: 8px 6px;
+  padding: 12px 8px;
   margin: 4px;
 }
 
