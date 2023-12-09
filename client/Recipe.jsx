@@ -45,15 +45,15 @@ function Recipe({ recipe, deleteRecipeFromView, setError }) {
   }
 
   return (
-    <div className="Recipe card" tabIndex="0">
+    <div className="Recipe card" tabIndex="0">    
       <div className="heading-container">
-        <h2 className="recipe-name">{recipe.name}</h2>
         <button
           onClick={() => setShowMoreOptions(!showMoreOptions)}
           className="more-options"
         >
           <img src="more.svg" alt="More Options" />
-        </button>
+        </button>      
+        <h2 className="recipe-name">{recipe.name}</h2>
         {showMoreOptions && (
           <ul className="recipe-options-list">
             <li className="recipe-option">
@@ -72,14 +72,11 @@ function Recipe({ recipe, deleteRecipeFromView, setError }) {
       <div className="image-container">
         <img src={`images/${recipe.imageName}.jpg`} alt={recipe.imageAlt} />
       </div>
-      <p>{recipe.description}</p>
+      <p className="description">{recipe.description}</p>
       <div className="recipe-actions">
-        <a className="recipe-action btn" href={`/ingredients/${recipeLink}`}>
+        <button className="recipe-action btn" onClick={() => navigate(`/ingredients/${recipeLink}`)}>
           Ingredients
-        </a>
-        <a className="recipe-action btn" href={`/instructions/${recipeLink}`}>
-          Instructions
-        </a>
+        </button>
       </div>
     </div>
   );
