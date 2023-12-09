@@ -17,7 +17,11 @@ var connection = mysql.createConnection({
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:5173/edit/*", "http://localhost:5173/create-recipe"],
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:5173/edit/*",
+      "http://localhost:5173/create-recipe",
+    ],
     methods: ["GET", "PUT", "POST", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   }),
@@ -38,7 +42,7 @@ app.get("/api/recipes", (request, response) => {
 async function recipeNameExists(name) {
   const [results] = await connection
     .promise()
-    .query("SELECT 1 FROM Recipe WHERE name = ?", name);  
+    .query("SELECT 1 FROM Recipe WHERE name = ?", name);
 
   return results && results.length > 0;
 }
@@ -52,8 +56,8 @@ app.put("/api/recipes", bodyParser.json(), async (request, response) => {
     const [results] = await connection
       .promise()
       .query(
-        "UPDATE Recipe SET name = ?, description = ?, imageName = ? WHERE name = ?", 
-        [name, description, imageName, oldRecipeName]
+        "UPDATE Recipe SET name = ?, description = ?, imageName = ? WHERE name = ?",
+        [name, description, imageName, oldRecipeName],
       );
     response.status(204).send("Recipe was updated succesfully.");
   } else {
@@ -64,7 +68,7 @@ app.put("/api/recipes", bodyParser.json(), async (request, response) => {
 
 app.post("/api/recipes", bodyParser.json(), async (request, response) => {
   const { name, description, imageName } = request.body;
-  const recipeExists = await recipeNameExists(name);  
+  const recipeExists = await recipeNameExists(name);
   if (recipeExists) {
     // If recipe name exists, don't create a new recipe.
     response.status(409).send("Recipe with same name already exists.");
@@ -82,7 +86,7 @@ app.post("/api/recipes", bodyParser.json(), async (request, response) => {
 
 app.delete("/api/recipes", bodyParser.json(), async (request, response) => {
   const { name, description, imageName } = request.body;
-  const recipeExists = await recipeNameExists(name);  
+  const recipeExists = await recipeNameExists(name);
   if (recipeExists) {
     // If recipe name exists, delete the recipe.
     await connection.promise().query("DELETE FROM Recipe WHERE name = ?", name);

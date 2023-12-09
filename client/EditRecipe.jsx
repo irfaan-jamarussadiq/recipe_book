@@ -1,13 +1,13 @@
-import './EditRecipe.css';
+import "./EditRecipe.css";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 
 function EditRecipe() {
   const { state: recipe } = useLocation();
-  const [uploadedImage, setUploadedImage] = useState(null);  
+  const [uploadedImage, setUploadedImage] = useState(null);
   const [updatedRecipe, setUpdatedRecipe] = useState(recipe);
   const [feedback, setFeedback] = useState("");
-  
+
   async function updateRecipe(event) {
     event.preventDefault();
     try {
@@ -18,7 +18,7 @@ function EditRecipe() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ oldRecipeName: recipe.name, ...updatedRecipe }),      
+        body: JSON.stringify({ oldRecipeName: recipe.name, ...updatedRecipe }),
       });
 
       if (response.status === 204) {
@@ -28,21 +28,24 @@ function EditRecipe() {
         // recipe could not be found
         setFeedback("Recipe to update was not found!");
       }
-    } catch(error) {
+    } catch (error) {
       console.log(error);
     }
   }
 
   function onRecipeChange(event) {
-    setUpdatedRecipe({ ...updatedRecipe, [event.target.name]: event.target.value });
-  }  
+    setUpdatedRecipe({
+      ...updatedRecipe,
+      [event.target.name]: event.target.value,
+    });
+  }
 
   return (
     <div className="EditRecipe card">
       <h2>Edit Recipe</h2>
       <form onSubmit={updateRecipe}>
         {feedback && <p className="error-message">{feedback}</p>}
-{/*        <div className="form-group">
+        {/*        <div className="form-group">
           <label>Name</label>
           <input type="text" defaultValue={recipe.name} onChange={onRecipeChange} />
         </div>
@@ -90,7 +93,7 @@ function EditRecipe() {
             onChange={onRecipeChange}
             required={true}
           />
-        </div>        
+        </div>
         <button className="submit btn">Update Recipe</button>
       </form>
     </div>
