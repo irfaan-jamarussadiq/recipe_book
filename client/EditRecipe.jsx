@@ -45,18 +45,6 @@ function EditRecipe() {
       <h2>Edit Recipe</h2>
       <form onSubmit={updateRecipe}>
         {feedback && <p className="error-message">{feedback}</p>}
-        {/*        <div className="form-group">
-          <label>Name</label>
-          <input type="text" defaultValue={recipe.name} onChange={onRecipeChange} />
-        </div>
-        <div className="form-group">
-          <label>Upload Image</label>
-          <input className="image-upload btn" type="file" />
-        </div>
-        <div className="form-group">
-          <label>Description</label>
-          <input className="recipe-description" type="text" defaultValue={recipe.description} />
-        </div>*/}
         <div className="form-group">
           <label htmlFor="recipe-name">Recipe Name</label>
           <input
