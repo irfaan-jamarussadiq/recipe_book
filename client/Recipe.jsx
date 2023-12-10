@@ -44,6 +44,10 @@ function Recipe({ recipe, deleteRecipeFromView, setError }) {
     }
   }
 
+  function viewInstructions(recipe) {
+    navigate(`/instructions/${recipeLink}`, { state: recipe });
+  }
+
   return (
     <div className="Recipe card" tabIndex="0">    
       <div className="heading-container">
@@ -74,8 +78,8 @@ function Recipe({ recipe, deleteRecipeFromView, setError }) {
       </div>
       <p className="description">{recipe.description}</p>
       <div className="recipe-actions">
-        <button className="recipe-action btn" onClick={() => navigate(`/ingredients/${recipeLink}`)}>
-          Ingredients
+        <button className="recipe-action btn" onClick={() => viewInstructions(recipe)}>
+          Instructions
         </button>
       </div>
     </div>

@@ -5,6 +5,7 @@ import App from "./App.jsx";
 import NavBar from "./NavBar.jsx";
 import EditRecipe from "./EditRecipe.jsx";
 import CreateRecipe from "./CreateRecipe.jsx";
+import RecipeInstructions from "./RecipeInstructions.jsx";
 import Footer from "./Footer.jsx";
 import "./index.css";
 
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/" element={<App />} />
         <Route path="/edit/:recipeName" element={<EditRecipe />} />
         <Route path="/create-recipe" element={<CreateRecipe />} />
+        <Route path="/instructions/:recipeName" element={<RecipeInstructions />} />
       </Routes>
     </Router>
     <Footer />
